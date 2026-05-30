@@ -1,10 +1,8 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../FFTproject.srcs/sources_1/new/Adder.v" \
-"../../../../FFTproject.srcs/sources_1/new/BF4real.v" \
-"../../../../FFTproject.srcs/sources_1/new/complexMult.v" \
-"../../../../FFTproject.srcs/sources_1/new/mult.v" \
-"../../../../FFTproject.srcs/sim_1/new/tb_BF4real.v" \
+"../../../../FFTproject.srcs/sources_1/new/BF2.v" \
+"../../../../FFTproject.srcs/sim_1/new/tb_BF2.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
