@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sat Jun  6 14:41:24 2026
+# Process ID: 6483
+# Current directory: /home/dell/Desktop/projects/20cred/FFTaccelerator
+# Command line: vivado
+# Log file: /home/dell/Desktop/projects/20cred/FFTaccelerator/vivado.log
+# Journal file: /home/dell/Desktop/projects/20cred/FFTaccelerator/vivado.jou
+# Running On: dell-Inspiron-5415, OS: Linux, CPU Frequency: 1461.080 MHz, CPU Physical cores: 12, Host memory: 7635 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.xpr
+update_compile_order -fileset sources_1
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name Wstage1
+set_property -dict [list \
+  CONFIG.Coe_File {/home/dell/Desktop/projects/20cred/FFTaccelerator/PySim/stage1_twiddles.coe} \
+  CONFIG.Load_Init_File {true} \
+  CONFIG.Write_Depth_A {32} \
+  CONFIG.Write_Width_A {120} \
+] [get_ips Wstage1]
+generate_target {instantiation_template} [get_files /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci]
+generate_target all [get_files  /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci]
+catch { config_ip_cache -export [get_ips -all Wstage1] }
+export_ip_user_files -of_objects [get_files /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci]
+launch_runs Wstage1_synth_1 -jobs 7
+wait_on_run Wstage1_synth_1
+export_simulation -of_objects [get_files /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci] -directory /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.ip_user_files/sim_scripts -ip_user_files_dir /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.ip_user_files -ipstatic_source_dir /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.cache/compile_simlib/modelsim} {questa=/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.cache/compile_simlib/questa} {xcelium=/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.cache/compile_simlib/xcelium} {vcs=/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.cache/compile_simlib/vcs} {riviera=/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet

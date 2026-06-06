@@ -1,7 +1,0 @@
-Running: xsim.dir/tb_fixed_point_multiplier_seq_behav/xsimk -simmode gui -wdb tb_fixed_point_multiplier_seq_behav.wdb -simrunnum 0 -socket 36901
-Design successfully loaded
-Design Loading Memory Usage: 23488 KB (Peak: 24056 KB)
-Design Loading CPU Usage: 20 ms
-Simulation completed
-Simulation Memory Usage: 105484 KB (Peak: 162756 KB)
-Simulation CPU Usage: 30 ms

@@ -1,0 +1,2 @@
+Wstage1.v,verilog,xil_defaultlib,../../../../FFTproject.gen/sources_1/ip/Wstage1/sim/Wstage1.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

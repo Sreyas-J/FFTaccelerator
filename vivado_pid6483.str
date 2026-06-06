@@ -1,0 +1,653 @@
+/*
+
+AMD Vivado v2023.1 (64-bit) [Major: 2023, Minor: 1]
+SW Build: 3865809 on Sun May  7 15:04:56 MDT 2023
+IP Build: 3864474 on Sun May  7 20:36:21 MDT 2023
+IP Build: 3864474 on Sun May  7 20:36:21 MDT 2023
+
+Process ID (PID): 6483
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sat Jun 06 14:41:39 IST 2026
+Time zone: 	India Standard Time (Asia/Kolkata)
+
+OS: Ubuntu
+OS Version: 6.8.0-107-generic
+OS Architecture: amd64
+Available processors (cores): 12
+
+Display: 0
+Screen size: 1536x864
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+OS font scaling: 100%
+
+Java version: 	17.0.3 64-bit
+JavaFX version: 17.0.1
+Java home: 	/tools/Xilinx/Vivado/2023.1/tps/lnx64/jre17.0.3_7
+Java executable: 	/tools/Xilinx/Vivado/2023.1/tps/lnx64/jre17.0.3_7/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	dell
+User home directory: /home/dell
+User working directory: /home/dell/Desktop/projects/20cred/FFTaccelerator
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vivado
+HDI_APPROOT: /tools/Xilinx/Vivado/2023.1
+RDI_DATADIR: /tools/Xilinx/Vivado/2023.1/data
+RDI_BINDIR: /tools/Xilinx/Vivado/2023.1/bin
+
+Vivado preferences file: /home/dell/.Xilinx/Vivado/2023.1/vivado.xml
+Vivado preferences directory: /home/dell/.Xilinx/Vivado/2023.1/
+Vivado layouts directory: /home/dell/.Xilinx/Vivado/2023.1/data/layouts
+PlanAhead jar file: 	/tools/Xilinx/Vivado/2023.1/lib/classes/planAhead.jar
+Vivado log file: 	/home/dell/Desktop/projects/20cred/FFTaccelerator/vivado.log
+Vivado journal file: 	/home/dell/Desktop/projects/20cred/FFTaccelerator/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-6483-dell-Inspiron-5415
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+FINN_XILINX_PATH: /tools/Xilinx/
+FINN_XILINX_VERSION: 2023.1
+GNOME_SHELL_SESSION_MODE: ubuntu
+RDI_APPROOT: /tools/Xilinx/Vivado/2023.1
+RDI_BASEROOT: /tools/Xilinx/Vivado
+RDI_BINROOT: /tools/Xilinx/Vivado/2023.1/bin
+RDI_BUILD: yes
+RDI_DATADIR: /tools/Xilinx/Vivado/2023.1/data
+RDI_INSTALLROOT: /tools/Xilinx
+RDI_INSTALLVER: 2023.1
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 17.0.3_7
+RDI_LIBDIR: /tools/Xilinx/Vivado/2023.1/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vivado/2023.1/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /tools/Xilinx/Vivado/2023.1/ids_lite/ISE/bin/lin64
+RDI_PROG: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/dell/Desktop/projects/20cred/FFTaccelerator:dell-Inspiron-5415_1780737083_6414
+RDI_SHARED_DATA: /tools/Xilinx/SharedData/2023.1/data
+RDI_TPS_ROOT: /tools/Xilinx/Vivado/2023.1/tps/lnx64
+RDI_USE_JDK17: True
+SHELL: /bin/bash
+VITIS_HLS: /tools/Xilinx/Vitis_HLS/2023.1/bin/vitis_hls
+VIVADO: /tools/Xilinx/Vivado/2023.1/bin/vivado
+XILINX: /tools/Xilinx/Vivado/2023.1/ids_lite/ISE
+XILINX_DSP: /tools/Xilinx/Vivado/2023.1/ids_lite/ISE
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2023.1
+XILINX_PLANAHEAD: /tools/Xilinx/Vivado/2023.1
+XILINX_VITIS: 
+XILINX_VIVADO: /tools/Xilinx/Vivado/2023.1
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2023.1
+
+
+GUI allocated memory:	752 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,636 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // u
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,732 MB. GUI used memory: 70 MB. Current time: 6/6/26, 2:41:40 PM IST
+setFileChooser("/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.xpr");
+// Opening Vivado Project: /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.xpr. Version: Vivado v2023.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 142 MB (+145939kb) [00:00:26]
+// [Engine Memory]: 1,736 MB (+1668860kb) [00:00:26]
+// WARNING: HEventQueue.dispatchEvent() is taking  1562 ms.
+// Tcl Message: open_project /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/home/ihs_05/Desktop/FFTaccelerator/FFTproject' since last save. INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,865 MB. GUI used memory: 72 MB. Current time: 6/6/26, 2:41:56 PM IST
+// [Engine Memory]: 1,865 MB (+44514kb) [00:00:27]
+// Project name: FFTproject; location: /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject; part: xc7a15tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 7839.039 ; gain = 305.258 ; free physical = 151 ; free virtual = 5758 
+// Elapsed time: 12 seconds
+dismissDialog("Open Project"); // bq
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 55 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 4, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 4, false, false, false, false, false, true); // E - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 1,931 MB. GUI used memory: 73 MB. Current time: 6/6/26, 2:42:55 PM IST
+// Elapsed time: 27 seconds
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // L
+selectCodeEditor("FFT.v", 897, 403); // ad
+selectCodeEditor("FFT.v", 433, 481); // ad
+// Elapsed time: 14 seconds
+selectCodeEditor("FFT.v", 429, 193); // ad
+selectCodeEditor("FFT.v", 248, 259); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectButton("OptionPane.button", "Yes"); // JButton
+selectCodeEditor("FFT.v", 305, 500); // ad
+selectCodeEditor("FFT.v", 305, 500, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("FFT.v", 305, 500); // ad
+// Elapsed time: 18 seconds
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+selectCodeEditor("FFT.v", 124, 182); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 1,944 MB. GUI used memory: 74 MB. Current time: 6/6/26, 2:44:25 PM IST
+// Elapsed time: 193 seconds
+selectCodeEditor("FFT.v", 279, 474); // ad
+// [GUI Memory]: 149 MB (+783kb) [00:07:20]
+// Elapsed time: 108 seconds
+selectCodeEditor("FFT.v", 558, 372); // ad
+selectCodeEditor("FFT.v", 396, 334); // ad
+selectCodeEditor("FFT.v", 396, 334); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 566, 264); // ad
+selectCodeEditor("FFT.v", 477, 378); // ad
+selectCodeEditor("FFT.v", 477, 378); // ad
+selectCodeEditor("FFT.v", 477, 378); // ad
+selectCodeEditor("FFT.v", 477, 378); // ad
+selectCodeEditor("FFT.v", 477, 378); // ad
+// Elapsed time: 61 seconds
+selectCodeEditor("FFT.v", 78, 410); // ad
+// Elapsed time: 13 seconds
+selectCodeEditor("FFT.v", 93, 307); // ad
+// Elapsed time: 78 seconds
+selectCodeEditor("FFT.v", 221, 349); // ad
+selectCodeEditor("FFT.v", 126, 242); // ad
+selectCodeEditor("FFT.v", 126, 242, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 21 seconds
+selectCodeEditor("FFT.v", 118, 385); // ad
+selectCodeEditor("FFT.v", 29, 83, true, false, false, false, false); // ad - Shift Key
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+selectCodeEditor("FFT.v", 264, 335); // ad
+selectCodeEditor("FFT.v", 264, 335); // ad
+selectCodeEditor("FFT.v", 90, 238); // ad
+selectCodeEditor("FFT.v", 57, 188, true, false, false, false, false); // ad - Shift Key
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+selectCodeEditor("FFT.v", 396, 475); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 126, 470); // ad
+selectCodeEditor("FFT.v", 126, 470, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 61 seconds
+selectCodeEditor("FFT.v", 126, 219); // ad
+selectCodeEditor("FFT.v", 126, 219, false, false, false, false, true); // ad - Double Click
+// Elapsed time: 13 seconds
+selectCodeEditor("FFT.v", 316, 230); // ad
+selectCodeEditor("FFT.v", 191, 220); // ad
+selectCodeEditor("FFT.v", 191, 220, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("FFT.v", 159, 157); // ad
+selectCodeEditor("FFT.v", 159, 157); // ad
+selectCodeEditor("FFT.v", 128, 127); // ad
+selectCodeEditor("FFT.v", 128, 127, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("FFT.v", 105, 130); // ad
+selectCodeEditor("FFT.v", 105, 130, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("FFT.v", 87, 159); // ad
+selectCodeEditor("FFT.v", 60, 115, true, false, false, false, false); // ad - Shift Key
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+// Elapsed time: 12 seconds
+selectCodeEditor("FFT.v", 119, 415); // ad
+// Elapsed time: 20 seconds
+selectCodeEditor("FFT.v", 226, 438); // ad
+selectCodeEditor("FFT.v", 226, 438, false, false, false, false, true); // ad - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+// Elapsed Time for: 'L.f': 14m:08s
+// [Engine Memory]: 1,959 MB (+356kb) [00:14:37]
+// Elapsed Time for: 'L.f': 14m:10s
+// Elapsed time: 23 seconds
+selectCodeEditor("FFT.v", 494, 334); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 14m:46s
+// Elapsed Time for: 'L.f': 14m:48s
+// HMemoryUtils.trashcanNow. Engine heap size: 1,978 MB. GUI used memory: 75 MB. Current time: 6/6/26, 2:56:45 PM IST
+// Elapsed time: 26 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 1); // E
+// Elapsed time: 19 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v)]", 5); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v), s0r : fixed_point_adder (Adder.v)]", 6, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v), s0r : fixed_point_adder (Adder.v)]", 6, false, false, false, false, false, true); // E - Double Click
+// [Engine Memory]: 2,059 MB (+2054kb) [00:15:50]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,074 MB. GUI used memory: 76 MB. Current time: 6/6/26, 2:57:20 PM IST
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // j
+// Elapsed time: 530 seconds
+selectCodeEditor("Adder.v", 447, 182); // ad
+selectCodeEditor("Adder.v", 447, 173); // ad
+// Elapsed time: 15 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // t
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v)]", 5); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v)]", 7); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v), cMulB : complexMult (complexMult.v)]", 24); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v), cMulB : complexMult (complexMult.v), mulRR : fixed_point_multiplier (mult.v)]", 25, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v), cMulB : complexMult (complexMult.v), mulRR : fixed_point_multiplier (mult.v)]", 25, false, false, false, false, false, true); // E - Double Click
+// Elapsed time: 12 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v), cMulB : complexMult (complexMult.v)]", 24, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v), cMulB : complexMult (complexMult.v)]", 24, true, false, false, false, false, true); // E - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,095 MB. GUI used memory: 77 MB. Current time: 6/6/26, 3:07:00 PM IST
+// Elapsed time: 11 seconds
+selectCodeEditor("complexMult.v", 153, 451); // ad
+selectCodeEditor("complexMult.v", 153, 451, false, false, false, false, true); // ad - Double Click
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v)]", 7); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v)]", 5, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v)]", 5, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("BF2.v", 201, 324); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 25m:48s
+// Elapsed Time for: 'L.f': 25m:50s
+// Elapsed time: 22 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v)]", 11, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v), adds3r : fixed_point_adder (Adder.v)]", 18, false, false, false, false, false, true); // E - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 2,123 MB. GUI used memory: 78 MB. Current time: 6/6/26, 3:07:50 PM IST
+selectCodeEditor("BF4.v", 201, 363); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 26m:02s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "BF2.v", 1); // o
+// Elapsed Time for: 'L.f': 26m:04s
+selectCodeEditor("BF2.v", 201, 64); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// Elapsed Time for: 'L.f': 26m:08s
+// [Engine Memory]: 2,168 MB (+6084kb) [00:26:35]
+// Elapsed Time for: 'L.f': 26m:10s
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), genblk1[1].bf4 : BF4 (BF4.v)]", 11); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf2ab : BF2 (BF2.v)]", 5); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf4real : BF4real (BF4real.v)]", 4, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf4real : BF4real (BF4real.v)]", 4, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("BF4real.v", 235, 74); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 2,198 MB. GUI used memory: 78 MB. Current time: 6/6/26, 3:08:15 PM IST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 26m:22s
+// Elapsed Time for: 'L.f': 26m:24s
+// Elapsed time: 79 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), bf4real : BF4real (BF4real.v)]", 4); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 1, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 1, true, false, false, false, false, true); // E - Double Click - Node
+selectCodeEditor("FFT.v", 99, 150); // ad
+// HMemoryUtils.trashcanNow. Engine heap size: 2,267 MB. GUI used memory: 79 MB. Current time: 6/6/26, 3:09:40 PM IST
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+// Elapsed time: 39 seconds
+selectCodeEditor("FFT.v", 28, 166); // ad
+selectCodeEditor("FFT.v", 52, 480, true, false, false, false, false); // ad - Shift Key
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 28m:32s
+// [Engine Memory]: 2,277 MB (+729kb) [00:28:59]
+// Elapsed Time for: 'L.f': 28m:34s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,277 MB. GUI used memory: 79 MB. Current time: 6/6/26, 3:10:30 PM IST
+selectCodeEditor("FFT.v", 192, 329); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 28m:38s
+selectCodeEditor("FFT.v", 48, 481); // ad
+// Elapsed Time for: 'L.f': 28m:40s
+// Elapsed time: 26 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 6); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 7); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_BF4real (tb_BF4real.v)]", 10, true); // E - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_BF4real (tb_BF4real.v)]", 10, true, false, false, false, false, true); // E - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,348 MB. GUI used memory: 79 MB. Current time: 6/6/26, 3:11:10 PM IST
+selectCodeEditor("tb_BF4real.v", 48, 488); // ad
+selectCodeEditor("tb_BF4real.v", 28, 275, true, false, false, false, false); // ad - Shift Key
+typeControlKey((HResource) null, "tb_BF4real.v", 'c'); // ad
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT.v", 4); // o
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+// [GUI Memory]: 159 MB (+1880kb) [00:29:55]
+selectCodeEditor("FFT.v", 48, 485); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+// Elapsed time: 20 seconds
+selectCodeEditor("FFT.v", 132, 292); // ad
+// Elapsed time: 19 seconds
+selectCodeEditor("FFT.v", 368, 244); // ad
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 374, 250); // ad
+// Elapsed time: 18 seconds
+selectCodeEditor("FFT.v", 541, 247); // ad
+selectCodeEditor("FFT.v", 121, 286); // ad
+// Elapsed time: 91 seconds
+selectCodeEditor("FFT.v", 270, 339); // ad
+selectCodeEditor("FFT.v", 317, 341, true, false, false, false, false); // ad - Shift Key
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 33m:02s
+// Elapsed Time for: 'L.f': 33m:04s
+selectCodeEditor("FFT.v", 847, 347); // ad
+selectCodeEditor("FFT.v", 844, 341); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 33m:22s
+// Elapsed Time for: 'L.f': 33m:24s
+// Elapsed time: 17 seconds
+selectCodeEditor("FFT.v", 94, 304); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 33m:30s
+// Elapsed Time for: 'L.f': 33m:32s
+selectCodeEditor("FFT.v", 366, 255); // ad
+// Elapsed time: 24 seconds
+selectCodeEditor("FFT.v", 140, 282); // ad
+selectCodeEditor("FFT.v", 140, 282, false, false, false, false, true); // ad - Double Click
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+selectCodeEditor("FFT.v", 298, 304); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 422, 305); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 535, 308); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 657, 308); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 776, 307); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 885, 306); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 996, 308); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 1049, 307); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 34m:42s
+// Elapsed Time for: 'L.f': 34m:44s
+// Elapsed time: 28 seconds
+selectCodeEditor("FFT.v", 156, 326); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 229, 319); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 35m:18s
+// Elapsed Time for: 'L.f': 35m:20s
+// Elapsed time: 10 seconds
+selectCodeEditor("FFT.v", 84, 454); // ad
+selectCodeEditor("FFT.v", 175, 459); // ad
+selectCodeEditor("FFT.v", 253, 462); // ad
+selectCodeEditor("FFT.v", 339, 455); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 35m:38s
+// Elapsed Time for: 'L.f': 35m:40s
+// Elapsed time: 158 seconds
+selectCodeEditor("FFT.v", 923, 217); // ad
+// Elapsed time: 42 seconds
+selectCodeEditor("FFT.v", 271, 228); // ad
+// Elapsed time: 33 seconds
+selectCodeEditor("FFT.v", 398, 236); // ad
+selectCodeEditor("FFT.v", 532, 232); // ad
+// Elapsed time: 43 seconds
+selectCodeEditor("FFT.v", 157, 227); // ad
+// Elapsed time: 17 seconds
+selectCodeEditor("FFT.v", 126, 404); // ad
+selectCodeEditor("FFT.v", 239, 400); // ad
+selectCodeEditor("FFT.v", 355, 399); // ad
+selectCodeEditor("FFT.v", 124, 413); // ad
+selectCodeEditor("FFT.v", 238, 407); // ad
+selectCodeEditor("FFT.v", 352, 414); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 40m:54s
+selectCodeEditor("FFT.v", 228, 270); // ad
+// Elapsed Time for: 'L.f': 40m:56s
+selectCodeEditor("FFT.v", 229, 258); // ad
+selectCodeEditor("FFT.v", 883, 216); // ad
+selectCodeEditor("FFT.v", 883, 216, false, false, false, false, true); // ad - Double Click
+selectCodeEditor("FFT.v", 883, 216); // ad
+typeControlKey((HResource) null, "FFT.v", 'c'); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 247, 234); // ad
+// Elapsed time: 27 seconds
+selectCodeEditor("FFT.v", 753, 234); // ad
+// Elapsed time: 12 seconds
+selectCodeEditor("FFT.v", 111, 441); // ad
+selectCodeEditor("FFT.v", 22, 460); // ad
+selectCodeEditor("FFT.v", 55, 478); // ad
+selectCodeEditor("FFT.v", 162, 435); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 113, 459); // ad
+selectCodeEditor("FFT.v", 211, 456); // ad
+selectCodeEditor("FFT.v", 117, 473); // ad
+selectCodeEditor("FFT.v", 216, 477); // ad
+selectCodeEditor("FFT.v", 114, 491); // ad
+selectCodeEditor("FFT.v", 213, 487); // ad
+selectCodeEditor("FFT.v", 308, 273); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 42m:34s
+typeControlKey(null, null, 'z');
+// Elapsed Time for: 'L.f': 42m:36s
+// Elapsed time: 60 seconds
+selectCodeEditor("FFT.v", 127, 470); // ad
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 43m:42s
+// Elapsed Time for: 'L.f': 43m:44s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,357 MB. GUI used memory: 79 MB. Current time: 6/6/26, 3:25:40 PM IST
+// Elapsed time: 12 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// Elapsed time: 11 seconds
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // g
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 2); // g
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // g
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_BF4real (tb_BF4real.v)]", 10); // E
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // g
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 2); // g
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // g
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 4); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 4); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 3); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), dut : BF4real (BF4real.v)]", 4); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v), dut : BF4real (BF4real.v)]", 4); // E
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, FFT (FFT.v)]", 3); // E
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, IP Catalog]", 4, false); // f
+// Run Command: PAResourceCommand.PACommandNames_CORE_GEN
+setText("PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE_SEARCH_FIELD", "bram"); // OverlayTextField
+selectTreeTable(PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, "Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.4", 7, "Block Memory Generator", 0, false); // z
+expandTreeTable(PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, "Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.4", 7); // z
+selectTreeTable(PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, "Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.4", 7, "Block Memory Generator", 0, false, false, false, false, false, true); // z - Double Click
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_CORE
+// TclEventType: LOAD_FEATURE
+dismissDialog("Customize IP"); // i
+// HMemoryUtils.trashcanNow. Engine heap size: 2,389 MB. GUI used memory: 89 MB. Current time: 6/6/26, 3:26:50 PM IST
+// Elapsed time: 50 seconds
+setText("Component Name", "W1"); // v
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Port A Options", 1); // bb
+// Elapsed time: 13 seconds
+setText("Defines the PortA Write Width(DINA)", "20", true); // v
+setText("Write Depth", "32", true); // v
+setText("Defines the PortA Write Width(DINA)", "120", true); // v
+dismissDialog("Customize IP"); // m
+// [Engine Memory]: 2,391 MB (+948kb) [00:46:34]
+// Elapsed time: 176 seconds
+selectTreeTable(PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, "Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.4", 7, "Block Memory Generator", 0, false); // z
+selectTreeTable(PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, "Block Memory Generator ; AXI4 ; Production ; Included ; xilinx.com:ip:blk_mem_gen:8.4", 7, "Block Memory Generator", 0, false, false, false, false, false, true); // z - Double Click
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_CORE
+// Elapsed time: 12 seconds
+setText("Component Name", "Wstage1"); // v
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Port A Options", 1); // bb
+setText("Defines the PortA Write Width(DINA)", "120", true); // v
+setText("Write Depth", "32", true); // v
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Other Options", 2); // bb
+selectCheckBox((HResource) null, "Load Init File", true); // f: TRUE
+selectButton(PAResourceEtoH.HACGCCoeFileWidget_BROWSE, "Browse"); // a
+selectComboBox(RDIResource.HJFileChooserRecentListPreview_RECENT_DIRECTORIES, "/home/dell/Desktop/projects/20cred/FFTaccelerator", 2); // aa.b
+setFileChooser("/home/dell/Desktop/projects/20cred/FFTaccelerator/PySim/stage1_twiddles.coe");
+// Elapsed time: 14 seconds
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Port A Options", 1); // bb
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Other Options", 2); // bb
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Port A Options", 1); // bb
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Other Options", 2); // bb
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Basic", 0); // bb
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Port A Options", 1); // bb
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Other Options", 2); // bb
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Customize IP"); // m
+// TclEventType: CREATE_IP_CORE
+// TclEventType: REPORT_IP_STATUS_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name Wstage1 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_UPDATE_IP
+// Tcl Message: set_property -dict [list \   CONFIG.Coe_File {/home/dell/Desktop/projects/20cred/FFTaccelerator/PySim/stage1_twiddles.coe} \   CONFIG.Load_Init_File {true} \   CONFIG.Write_Depth_A {32} \   CONFIG.Write_Width_A {120} \ ] [get_ips Wstage1] 
+// Tcl Message: INFO: [IP_Flow 19-3484] Absolute path of file '/home/dell/Desktop/projects/20cred/FFTaccelerator/PySim/stage1_twiddles.coe' provided. It will be converted relative to IP Instance files '../../../../../PySim/stage1_twiddles.coe' 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target {instantiation_template} [get_files /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'Wstage1'... 
+// Elapsed Time for: 'L.f': 50m:24s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,440 MB. GUI used memory: 90 MB. Current time: 6/6/26, 3:32:20 PM IST
+selectButton(PAResourceQtoS.SimpleOutputProductDialog_GENERATE_OUTPUT_PRODUCTS_IMMEDIATELY, "Generate"); // a
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: generate_target all [get_files  /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci] 
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'Wstage1'... INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'Wstage1'... INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'Wstage1'... INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'Wstage1'... 
+// Tcl Message: catch { config_ip_cache -export [get_ips -all Wstage1] } 
+// Tcl Message: INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: Wstage1 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci] -no_script -sync -force -quiet 
+// TclEventType: FILE_SET_NEW
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_ADD
+// Tcl Message: create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/ip/Wstage1/Wstage1.xci] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs Wstage1_synth_1 -jobs 7 
+// Tcl Message: INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: Wstage1 
+// Tcl Message: [Sat Jun  6 15:32:22 2026] Launched Wstage1_synth_1... Run output will be captured here: /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.runs/Wstage1_synth_1/runme.log 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: RUN_STATUS_CHANGE
+selectButton("OptionPane.button", "OK"); // JButton
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 50m:30s
+// Elapsed Time for: 'L.f': 50m:32s
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // g
+// Elapsed Time for: 'L.f': 50m:34s
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, Wstage1]", 1); // E
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, Wstage1, Instantiation Template]", 2); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, Wstage1, Instantiation Template, Wstage1.veo]", 4, false); // E
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, IP, Wstage1, Instantiation Template, Wstage1.veo]", 4, false, false, false, false, false, true); // E - Double Click
+selectCodeEditor("Wstage1.veo", 19, 423); // G
+selectCodeEditor("Wstage1.veo", 1, 303, true, false, false, false, false); // G - Shift Key
+typeControlKey((HResource) null, "Wstage1.veo", 'c'); // G
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT.v", 0); // o
+closeView(PAResourceOtoP.PAViews_IP_CATALOG, "IP Catalog"); // H
+selectCodeEditor("FFT.v", 178, 249); // ad
+typeControlKey((HResource) null, "FFT.v", 'v'); // ad
+selectCodeEditor("FFT.v", 122, 279); // ad
+selectCodeEditor("FFT.v", 122, 279, false, false, false, false, true); // ad - Double Click
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1583 ms. Increasing delay to 4749 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 203ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3205 ms.
+// Elapsed time: 17 seconds
+selectCodeEditor("FFT.v", 164, 264); // ad
+// WARNING: HEventQueue.dispatchEvent() is taking  1932 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 477ms to process. Increasing delay to 3000 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1361ms to process. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 3924 ms. Increasing delay to 11772 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1432 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 2,516 MB. GUI used memory: 90 MB. Current time: 6/6/26, 3:33:19 PM IST
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 1616 ms. Increasing delay to 3000 ms.
+// Elapsed time: 13 seconds
+selectCodeEditor("FFT.v", 225, 307); // ad
+selectCodeEditor("FFT.v", 102, 277); // ad
+typeControlKey(null, null, 'z');
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1286 ms. Decreasing delay to 3286 ms.
+// [Engine Memory]: 2,516 MB (+5675kb) [00:52:07]
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 431ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1449 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 4319 ms. Increasing delay to 12957 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1729 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 870ms to process. Increasing delay to 4000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1118 ms.

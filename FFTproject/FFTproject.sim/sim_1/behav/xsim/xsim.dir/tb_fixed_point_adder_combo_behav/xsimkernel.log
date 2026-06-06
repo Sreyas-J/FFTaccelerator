@@ -1,4 +1,0 @@
-Running: xsim.dir/tb_fixed_point_adder_combo_behav/xsimk -simmode gui -wdb tb_fixed_point_adder_combo_behav.wdb -simrunnum 0 -socket 51995
-Design successfully loaded
-Design Loading Memory Usage: 23480 KB (Peak: 24052 KB)
-Design Loading CPU Usage: 30 ms

@@ -2,15 +2,11 @@
 2020.2
 May  7 2023
 15:10:42
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.sim/sim_1/behav/xsim/glbl.v,1780049289,verilog,,,,glbl,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/Adder_tb.v,1780049044,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF4.v,,tb_fixed_point_adder_combo,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_BF2.v,1780146537,verilog,,,,tb_BF2,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_BF4.v,1780137416,verilog,,,,tb_BF4,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_BF4real.v,1780143604,verilog,,,,tb_BF4real,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_mult.v,1780035704,verilog,,,,tb_fixed_point_multiplier_seq,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/Adder.v,1780049289,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF2.v,,fixed_point_adder,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF2.v,1780146292,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_BF2.v,,BF2,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF4.v,1780061115,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/complexMult.v,,BF4,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF4real.v,1780144620,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/complexMult.v,,BF4real,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/complexMult.v,1780058353,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/mult.v,,complexMult,,,,,,,,
-/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/mult.v,1780049289,verilog,,/home/ihs_05/Desktop/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_BF4real.v,,fixed_point_multiplier,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.gen/sources_1/ip/Wstage1/sim/Wstage1.v,1780740141,verilog,,/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/Adder.v,,Wstage1,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_FFT.v,1780747333,verilog,,,,tb_FFT_staggered,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/Adder.v,1780736995,verilog,,/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF4real.v,,fixed_point_adder,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/BF4real.v,1780738696,verilog,,/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v,,BF4real,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v,1780748144,verilog,,/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/complexMult.v,,FFT,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/complexMult.v,1780736995,verilog,,/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/mult.v,,complexMult,,,,,,,,
+/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/mult.v,1780736995,verilog,,/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sim_1/new/tb_FFT.v,,fixed_point_multiplier,,,,,,,,

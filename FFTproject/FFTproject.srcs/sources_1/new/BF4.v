@@ -22,7 +22,7 @@
 
 module BF4 # (
     parameter INT_WIDTH  = 1,  // Number of integer bits (including sign bit)
-    parameter FRAC_WIDTH = 15  // Number of fractional bits
+    parameter FRAC_WIDTH = 17  // Number of fractional bits
 )(
         input wire clk,
         input wire signed [INT_WIDTH+FRAC_WIDTH-1:0] a_r,b_r,c_r,d_r,a_i,b_i,c_i,d_i,

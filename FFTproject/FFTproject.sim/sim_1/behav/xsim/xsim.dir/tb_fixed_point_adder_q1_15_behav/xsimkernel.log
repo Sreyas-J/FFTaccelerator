@@ -1,7 +1,0 @@
-Running: xsim.dir/tb_fixed_point_adder_q1_15_behav/xsimk -simmode gui -wdb tb_fixed_point_adder_q1_15_behav.wdb -simrunnum 0 -socket 40535
-Design successfully loaded
-Design Loading Memory Usage: 23480 KB (Peak: 24052 KB)
-Design Loading CPU Usage: 10 ms
-Simulation completed
-Simulation Memory Usage: 105216 KB (Peak: 162748 KB)
-Simulation CPU Usage: 20 ms

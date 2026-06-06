@@ -22,7 +22,7 @@
 
 module BF2 #(
     parameter INT_WIDTH = 1,
-    parameter FRAC_WIDTH =15
+    parameter FRAC_WIDTH =17
 )(
         input wire clk,
         input wire val,
