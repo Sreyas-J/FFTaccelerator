@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+// 1 DELAY
 module fixed_point_multiplier #(
     parameter INT_WIDTH  = 1,  // Number of integer bits (including sign bit)
     parameter FRAC_WIDTH = 15  // Number of fractional bits

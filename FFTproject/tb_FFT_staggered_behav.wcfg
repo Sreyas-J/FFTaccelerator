@@ -11,38 +11,38 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="550.001 ns"></ZoomEndTime>
-      <Cursor1Time time="550.000 ns"></Cursor1Time>
+      <ZoomStartTime time="3.285 ns"></ZoomStartTime>
+      <ZoomEndTime time="81.034 ns"></ZoomEndTime>
+      <Cursor1Time time="55.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="174"></NameColumnWidth>
-      <ValueColumnWidth column_width="112"></ValueColumnWidth>
+      <ValueColumnWidth column_width="68"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="24" />
    <wvobject type="logic" fp_name="/tb_FFT_staggered/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_FFT_staggered/reset">
+   <wvobject type="logic" fp_name="/tb_FFT_staggered/dut/bf4real/val">
+      <obj_property name="ElementShortName">val</obj_property>
+      <obj_property name="ObjectShortName">val</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_FFT_staggered/dut/reset">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/in0">
-      <obj_property name="ElementShortName">in0[17:0]</obj_property>
-      <obj_property name="ObjectShortName">in0[17:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/ws1Addra">
+      <obj_property name="ElementShortName">ws1Addra[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ws1Addra[4:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/in1">
-      <obj_property name="ElementShortName">in1[17:0]</obj_property>
-      <obj_property name="ObjectShortName">in1[17:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_FFT_staggered/dut/done">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/in2">
-      <obj_property name="ElementShortName">in2[17:0]</obj_property>
-      <obj_property name="ObjectShortName">in2[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/in3">
-      <obj_property name="ElementShortName">in3[17:0]</obj_property>
-      <obj_property name="ObjectShortName">in3[17:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dReset">
+      <obj_property name="ElementShortName">dReset[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dReset[1:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_FFT_staggered/dut/ws1Addra">
       <obj_property name="ElementShortName">ws1Addra[4:0]</obj_property>
@@ -92,14 +92,6 @@
       <obj_property name="ElementShortName">A_r[17:0]</obj_property>
       <obj_property name="ObjectShortName">A_r[17:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/C_r">
-      <obj_property name="ElementShortName">C_r[17:0]</obj_property>
-      <obj_property name="ObjectShortName">C_r[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/C_i">
-      <obj_property name="ElementShortName">C_i[17:0]</obj_property>
-      <obj_property name="ObjectShortName">C_i[17:0]</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/B_r">
       <obj_property name="ElementShortName">B_r[17:0]</obj_property>
       <obj_property name="ObjectShortName">B_r[17:0]</obj_property>
@@ -107,6 +99,14 @@
    <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/B_i">
       <obj_property name="ElementShortName">B_i[17:0]</obj_property>
       <obj_property name="ObjectShortName">B_i[17:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/C_r">
+      <obj_property name="ElementShortName">C_r[17:0]</obj_property>
+      <obj_property name="ObjectShortName">C_r[17:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/C_i">
+      <obj_property name="ElementShortName">C_i[17:0]</obj_property>
+      <obj_property name="ObjectShortName">C_i[17:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/D_r">
       <obj_property name="ElementShortName">D_r[17:0]</obj_property>

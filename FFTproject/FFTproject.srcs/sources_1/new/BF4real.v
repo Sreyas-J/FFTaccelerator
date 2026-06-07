@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+// 3 DELAY
 module BF4real #(
     parameter INT_WIDTH = 1,
     parameter FRAC_WIDTH = 17

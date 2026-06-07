@@ -5,13 +5,13 @@ Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug 
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 122 differs from formal bit length 120 for port 'douta' [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:62]
-WARNING: [VRFC 10-3705] select index 3 into 'w1_r' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:84]
-WARNING: [VRFC 10-3705] select index 3 into 'w1_i' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:85]
-WARNING: [VRFC 10-3705] select index 3 into 'w2_r' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:87]
-WARNING: [VRFC 10-3705] select index 3 into 'w2_i' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:88]
-WARNING: [VRFC 10-3705] select index 3 into 'w3_r' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:90]
-WARNING: [VRFC 10-3705] select index 3 into 'w3_i' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:91]
+WARNING: [VRFC 10-3091] actual bit length 122 differs from formal bit length 120 for port 'douta' [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:65]
+WARNING: [VRFC 10-3705] select index 3 into 'w1_r' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:87]
+WARNING: [VRFC 10-3705] select index 3 into 'w1_i' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:88]
+WARNING: [VRFC 10-3705] select index 3 into 'w2_r' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:90]
+WARNING: [VRFC 10-3705] select index 3 into 'w2_i' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:91]
+WARNING: [VRFC 10-3705] select index 3 into 'w3_r' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:93]
+WARNING: [VRFC 10-3705] select index 3 into 'w3_i' is out of bounds [/home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.srcs/sources_1/new/FFT.v:94]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

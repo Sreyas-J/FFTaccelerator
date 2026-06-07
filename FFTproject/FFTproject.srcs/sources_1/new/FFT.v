@@ -30,7 +30,7 @@ module FFT #(
     input wire signed [INT_WIDTH+FRAC_WIDTH-1:0] in0,in1,in2,in3,
     
     output reg signed [INT_WIDTH+FRAC_WIDTH-1:0] out0_r,out1_r,out2_r,out3_r,   out0_i,out1_i,out2_i,out3_i,
-    output reg done
+    output wire done
     );
     
     localparam TOTAL_WIDTH=INT_WIDTH+FRAC_WIDTH;
@@ -42,9 +42,9 @@ module FFT #(
     wire signed [TOTAL_WIDTH+1:0] w1_r[0:STAGES-2], w2_r[0:STAGES-2], w3_r[0:STAGES-2], w1_i[0:STAGES-2], w2_i [0:STAGES-2], w3_i [0:STAGES-2];  
     wire doneInt [0:STAGES-1];
     reg valInt [0:STAGES-1];
+    reg [1:0] dReset;
     
     wire [TWIDDLE_WIDTH*6+1:0] wsDout [0:STAGES-2];
-    
     
     //HARDCODED
     reg [4:0] ws1Addra;
@@ -53,9 +53,12 @@ module FFT #(
     
     assign A_i[0] = 'd0;
     
+    //TEMP
+    assign done=doneInt[0];
+    
     Wstage1 ws1 (
       .clka(clk),    // input wire clka
-      .ena(valInt[0]),      // input wire ena
+      .ena(1'b1),      // input wire ena
       .wea(1'b0),      // input wire [0 : 0] wea
       .addra(ws1Addra),  // input wire [4 : 0] addra
       .dina('d0),    // input wire [119 : 0] dina
@@ -94,14 +97,16 @@ module FFT #(
     
     always@(posedge clk)begin
         if(reset)begin
-            valInt[0]<=1'b1;
+//            valInt[0]<=1'b1;
             ws1Addra<=0;
+            dReset<=1;
         end
         
-        if(valInt[0]) ws1Addra<=ws1Addra+1;
+        if(dReset==1) valInt[0]<=1'b1;
         
-        //TEMP
-        done<=doneInt[0];
+        if(dReset) dReset<=dReset+1;
+                
+        if(dReset || ws1Addra) ws1Addra<=ws1Addra+1;
         
         a_r[0]<=in0;
         b_r[0]<=in1;

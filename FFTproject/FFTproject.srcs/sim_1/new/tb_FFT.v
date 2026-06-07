@@ -63,6 +63,7 @@ module tb_FFT_staggered;
         // This ensures the pipeline only resets for 1 cycle
         @(negedge clk);
         reset = 0;
+//        @(negedge clk);
         
         $display("Starting Staggered Data Injection (Distance = 32)...");
         $display("===================================================");
