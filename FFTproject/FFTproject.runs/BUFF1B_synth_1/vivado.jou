@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sun Jun  7 18:53:58 2026
+# Process ID: 8614
+# Current directory: /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.runs/BUFF1B_synth_1
+# Command line: vivado -log BUFF1B.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BUFF1B.tcl
+# Log file: /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.runs/BUFF1B_synth_1/BUFF1B.vds
+# Journal file: /home/dell/Desktop/projects/20cred/FFTaccelerator/FFTproject/FFTproject.runs/BUFF1B_synth_1/vivado.jou
+# Running On: dell-Inspiron-5415, OS: Linux, CPU Frequency: 1397.209 MHz, CPU Physical cores: 12, Host memory: 7635 MB
+#-----------------------------------------------------------
+source BUFF1B.tcl -notrace

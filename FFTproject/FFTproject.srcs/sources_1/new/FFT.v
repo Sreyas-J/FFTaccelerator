@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 05/30/2026 06:40:59 PM
-// Design Name: 
-// Module Name: FFT
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module FFT #(
@@ -46,12 +27,24 @@ module FFT #(
     
     wire [TWIDDLE_WIDTH*6+1:0] wsDout [0:STAGES-2];
     
+    wire we [STAGES-2:0];
+    wire [TOTAL_WIDTH*2-1:0] din1a,din1b,din1c;
+    reg [TOTAL_WIDTH*2-1:0] buff1c [0:7];
+    wire [TOTAL_WIDTH*2-1:0] dout1a,dout1b,dout1c;
+    
     //HARDCODED
-    reg [4:0] ws1Addra;
+    reg [4:0] ws1Addra,addr1a_w,addr1a_r;
+    reg [3:0] addr1b_w,addr1b_r;
     reg [2:0] ws2Addra;
     reg ws3Addra;
     
+    assign dout1c=buff1c[7];
+    
     assign A_i[0] = 'd0;
+    
+    assign din1a={A_i[0],A_r[0]};
+    assign din1b={B_i[0],B_r[0]};
+    assign din1c={C_i[0],C_r[0]};
     
     //TEMP
     assign done=doneInt[0];
@@ -63,6 +56,26 @@ module FFT #(
       .addra(ws1Addra),  // input wire [4 : 0] addra
       .dina('d0),    // input wire [119 : 0] dina
       .douta(wsDout[0])  // output wire [119 : 0] douta
+    );
+    
+    BUFF1A buff1a (
+      .clka(clk),    // input wire clka
+      .wea(we[0]),      // input wire [0 : 0] wea
+      .addra(addr1a_w),  // input wire [4 : 0] addra
+      .dina(din1a),    // input wire [35 : 0] dina
+      .clkb(clk),    // input wire clkb
+      .addrb(addr1a_r),  // input wire [4 : 0] addrb
+      .doutb(dout1a)  // output wire [35 : 0] doutb
+    );
+    
+    BUFF1B buff1b (
+      .clka(clk),    // input wire clka
+      .wea(we[0]),      // input wire [0 : 0] wea
+      .addra(addr1b_w),  // input wire [3 : 0] addra
+      .dina(din1b),    // input wire [35 : 0] dina
+      .clkb(clk),    // input wire clkb
+      .addrb(addr1b_r),  // input wire [3 : 0] addrb
+      .doutb(dout1b)  // output wire [35 : 0] doutb
     );
     
     BF4real #(
@@ -92,26 +105,49 @@ module FFT #(
             
             assign w3_r[i]=wsDout[i][TWIDDLE_WIDTH*4+:TWIDDLE_WIDTH];
             assign w3_i[i]=wsDout[i][TWIDDLE_WIDTH*5+:TWIDDLE_WIDTH];
+            
+        end
+        
+        for(i=0;i<STAGES-1;i=i+1)begin
+            assign we[i]=doneInt[i];        
         end
     endgenerate
     
+    
+    integer j;
     always@(posedge clk)begin
         if(reset)begin
 //            valInt[0]<=1'b1;
             ws1Addra<=0;
             dReset<=1;
+            
+            addr1a_w<=0; addr1b_r<=0; addr1b_w<=0; addr1b_r<=0;
+            
         end
         
         if(dReset==1) valInt[0]<=1'b1;
         
-        if(dReset) dReset<=dReset+1;
+        if(dReset && dReset!=3) dReset<=dReset+1;
                 
-        if(dReset || ws1Addra) ws1Addra<=ws1Addra+1;
+        if(dReset) ws1Addra<=ws1Addra+1;
         
         a_r[0]<=in0;
         b_r[0]<=in1;
         c_r[0]<=in2;
         d_r[0]<=in3;
+        
+        if(doneInt[0])begin
+            addr1a_w<=addr1a_w+1;
+            addr1b_w<=addr1b_w+1;
+//            we1a<=1'b1;
+//            we1b<=1'b1;
+        end
+        
+        buff1c[0]<=din1c;
+        //HARDCODED
+        for(j=1;j<8;j=j+1)begin
+            buff1c[j]<=buff1c[j-1];
+        end
     end
     
 endmodule

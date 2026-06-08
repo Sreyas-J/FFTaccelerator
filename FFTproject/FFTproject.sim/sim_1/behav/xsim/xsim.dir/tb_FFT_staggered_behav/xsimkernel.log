@@ -1,4 +1,4 @@
-Running: xsim.dir/tb_FFT_staggered_behav/xsimk -simmode gui -wdb tb_FFT_staggered_behav.wdb -simrunnum 0 -socket 55155
+Running: xsim.dir/tb_FFT_staggered_behav/xsimk -simmode gui -wdb tb_FFT_staggered_behav.wdb -simrunnum 0 -socket 45045
 Design successfully loaded
-Design Loading Memory Usage: 23780 KB (Peak: 24124 KB)
-Design Loading CPU Usage: 70 ms
+Design Loading Memory Usage: 24176 KB (Peak: 24264 KB)
+Design Loading CPU Usage: 50 ms

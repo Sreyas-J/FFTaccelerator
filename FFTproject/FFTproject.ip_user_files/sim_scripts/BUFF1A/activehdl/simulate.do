@@ -1,0 +1,14 @@
+transcript off
+onbreak {quit -force}
+onerror {quit -force}
+transcript on
+
+asim +access +r +m+BUFF1A  -L xpm -L blk_mem_gen_v8_4_6 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -O2 xil_defaultlib.BUFF1A xil_defaultlib.glbl
+
+do {BUFF1A.udo}
+
+run
+
+endsim
+
+quit -force

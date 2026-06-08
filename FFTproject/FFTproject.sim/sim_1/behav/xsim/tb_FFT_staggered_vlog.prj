@@ -1,5 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../FFTproject.gen/sources_1/ip/BUFF1B/sim/BUFF1B.v" \
+"../../../../FFTproject.gen/sources_1/ip/BUFF1A/sim/BUFF1A.v" \
 "../../../../FFTproject.gen/sources_1/ip/Wstage1/sim/Wstage1.v" \
 "../../../../FFTproject.srcs/sources_1/new/Adder.v" \
 "../../../../FFTproject.srcs/sources_1/new/BF4real.v" \
