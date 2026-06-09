@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="358.162 ns"></ZoomEndTime>
-      <Cursor1Time time="55.000 ns"></Cursor1Time>
+      <ZoomEndTime time="530.001 ns"></ZoomEndTime>
+      <Cursor1Time time="235.100 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="174"></NameColumnWidth>
-      <ValueColumnWidth column_width="64"></ValueColumnWidth>
+      <NameColumnWidth column_width="145"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="22" />
    <wvobject type="logic" fp_name="/tb_FFT_staggered/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -80,20 +80,34 @@
       <obj_property name="ElementShortName">D_i[17:0]</obj_property>
       <obj_property name="ObjectShortName">D_i[17:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff1a/inst/\native_mem_module.blk_mem_gen_v8_4_6_inst /memory">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">memory[0:23][35:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[0:23][35:0]</obj_property>
-      <obj_property name="label">BUFF1A[0:23][35:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1a">
+      <obj_property name="ElementShortName">din1a[0:1][35:0]</obj_property>
+      <obj_property name="ObjectShortName">din1a[0:1][35:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff1b/inst/\native_mem_module.blk_mem_gen_v8_4_6_inst /memory">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">memory[0:15][35:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[0:15][35:0]</obj_property>
-      <obj_property name="label">BUFF1B[0:15][35:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1b">
+      <obj_property name="ElementShortName">din1b[0:1][35:0]</obj_property>
+      <obj_property name="ObjectShortName">din1b[0:1][35:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff1c">
-      <obj_property name="ElementShortName">buff1c[0:7][35:0]</obj_property>
-      <obj_property name="ObjectShortName">buff1c[0:7][35:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1c">
+      <obj_property name="ElementShortName">din1c[0:1][35:0]</obj_property>
+      <obj_property name="ObjectShortName">din1c[0:1][35:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/cnt">
+      <obj_property name="ElementShortName">cnt[0:2][5:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[0:2][5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1a">
+      <obj_property name="ElementShortName">dout1a[0:1][35:0]</obj_property>
+      <obj_property name="ObjectShortName">dout1a[0:1][35:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1b">
+      <obj_property name="ElementShortName">dout1b[0:1][35:0]</obj_property>
+      <obj_property name="ObjectShortName">dout1b[0:1][35:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1c">
+      <obj_property name="ElementShortName">dout1c[35:0]</obj_property>
+      <obj_property name="ObjectShortName">dout1c[35:0]</obj_property>
    </wvobject>
 </wave_config>

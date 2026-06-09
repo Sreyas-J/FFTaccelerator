@@ -27,27 +27,32 @@ module FFT #(
     
     wire [TWIDDLE_WIDTH*6+1:0] wsDout [0:STAGES-2];
     
-    wire we [STAGES-2:0];
-    wire [TOTAL_WIDTH*2-1:0] din1a,din1b,din1c;
-    reg [TOTAL_WIDTH*2-1:0] buff1c [0:7];
-    wire [TOTAL_WIDTH*2-1:0] dout1a,dout1b,dout1c;
+    wire we1 [STAGES-2:0],we2 [STAGES-2:0];
+    wire [TOTAL_WIDTH*2-1:0] din1a[0:1],din1b[0:1],din1c[0:1];
+    reg [TOTAL_WIDTH*2-1:0] buff1c1 [0:7];
+    wire [TOTAL_WIDTH*2-1:0] dout1a[0:1],dout1b[0:1],dout1c,dout1d;
     
     //HARDCODED
-    reg [4:0] ws1Addra,addr1a_w,addr1a_r;
-    reg [3:0] addr1b_w,addr1b_r;
+    reg [4:0] ws1Addra,addr1a1_w,addr1a1_r,addr1a2_w,addr1a2_r;
+    reg [3:0] addr1b1_w,addr1b1_r,addr1b2_w,addr1b2_r;
     reg [2:0] ws2Addra;
     reg ws3Addra;
     
-    assign dout1c=buff1c[7];
+    reg [5:0] cnt [0:STAGES-2];
+    
+    assign dout1c=buff1c1[7];
     
     assign A_i[0] = 'd0;
     
-    assign din1a={A_i[0],A_r[0]};
-    assign din1b={B_i[0],B_r[0]};
-    assign din1c={C_i[0],C_r[0]};
+    assign din1a[0]={A_i[0],A_r[0]};
+    assign din1b[0]={B_i[0],B_r[0]};
+    assign din1c[0]={C_i[0],C_r[0]};
+    assign dout1d={D_i[0],D_r[0]};
     
     //TEMP
     assign done=doneInt[0];
+    
+    // STAGE1 TWIDDLE FACTORS
     
     Wstage1 ws1 (
       .clka(clk),    // input wire clka
@@ -58,26 +63,50 @@ module FFT #(
       .douta(wsDout[0])  // output wire [119 : 0] douta
     );
     
-    BUFF1A buff1a (
+    // COMMUTATOR1 1-2
+    BUFF1A buff1a1 (
       .clka(clk),    // input wire clka
-      .wea(we[0]),      // input wire [0 : 0] wea
-      .addra(addr1a_w),  // input wire [4 : 0] addra
-      .dina(din1a),    // input wire [35 : 0] dina
+      .wea(we1[0]),      // input wire [0 : 0] wea
+      .addra(addr1a1_w),  // input wire [4 : 0] addra
+      .dina(din1a[0]),    // input wire [35 : 0] dina
       .clkb(clk),    // input wire clkb
-      .addrb(addr1a_r),  // input wire [4 : 0] addrb
-      .doutb(dout1a)  // output wire [35 : 0] doutb
+      .addrb(addr1a1_r),  // input wire [4 : 0] addrb
+      .doutb(dout1a[0])  // output wire [35 : 0] doutb
     );
     
-    BUFF1B buff1b (
+    BUFF1B buff1b1 (
       .clka(clk),    // input wire clka
-      .wea(we[0]),      // input wire [0 : 0] wea
-      .addra(addr1b_w),  // input wire [3 : 0] addra
-      .dina(din1b),    // input wire [35 : 0] dina
+      .wea(we1[0]),      // input wire [0 : 0] wea
+      .addra(addr1b1_w),  // input wire [3 : 0] addra
+      .dina(din1b[0]),    // input wire [35 : 0] dina
       .clkb(clk),    // input wire clkb
-      .addrb(addr1b_r),  // input wire [3 : 0] addrb
-      .doutb(dout1b)  // output wire [35 : 0] doutb
+      .addrb(addr1b1_r),  // input wire [3 : 0] addrb
+      .doutb(dout1b[0])  // output wire [35 : 0] doutb
     );
     
+    //COMMUTATOR2 1-2
+    BUFF1A buff1a2 (
+      .clka(clk),    // input wire clka
+      .wea(we2[0]),      // input wire [0 : 0] wea
+      .addra(addr1a2_w),  // input wire [4 : 0] addra
+      .dina(din1a[1]),    // input wire [35 : 0] dina
+      .clkb(clk),    // input wire clkb
+      .addrb(addr1a2_r),  // input wire [4 : 0] addrb
+      .doutb(dout1a[1])  // output wire [35 : 0] doutb
+    );
+    
+    BUFF1B buff1b2 (
+      .clka(clk),    // input wire clka
+      .wea(we2[0]),      // input wire [0 : 0] wea
+      .addra(addr1b2_w),  // input wire [3 : 0] addra
+      .dina(din1b[1]),    // input wire [35 : 0] dina
+      .clkb(clk),    // input wire clkb
+      .addrb(addr1b2_r),  // input wire [3 : 0] addrb
+      .doutb(dout1b[1])  // output wire [35 : 0] doutb
+    );
+    
+    
+    // STAGE 1
     BF4real #(
         .INT_WIDTH(INT_WIDTH),
         .FRAC_WIDTH(FRAC_WIDTH)
@@ -109,7 +138,7 @@ module FFT #(
         end
         
         for(i=0;i<STAGES-1;i=i+1)begin
-            assign we[i]=doneInt[i];        
+            assign we1[i]=doneInt[i];        
         end
     endgenerate
     
@@ -121,33 +150,42 @@ module FFT #(
             ws1Addra<=0;
             dReset<=1;
             
-            addr1a_w<=0; addr1b_r<=0; addr1b_w<=0; addr1b_r<=0;
+            addr1a1_w<=0; addr1a1_r<=0; addr1b1_w<=0; addr1b1_r<=0;
+            addr1a2_w<=0; addr1a2_r<=0; addr1b2_w<=0; addr1b2_r<=0;
+            
+            for(j=0;j<STAGES-1;j=j+1)begin
+                cnt[j]<=0;
+            end
             
         end
         
         if(dReset==1) valInt[0]<=1'b1;
-        
-        if(dReset && dReset!=3) dReset<=dReset+1;
-                
+        if(dReset && dReset!=3) dReset<=dReset+1;             
         if(dReset) ws1Addra<=ws1Addra+1;
         
+        // STAGE1
         a_r[0]<=in0;
         b_r[0]<=in1;
         c_r[0]<=in2;
         d_r[0]<=in3;
         
         if(doneInt[0])begin
-            addr1a_w<=addr1a_w+1;
-            addr1b_w<=addr1b_w+1;
-//            we1a<=1'b1;
-//            we1b<=1'b1;
+            addr1a1_w<=addr1a1_w+1;
+            addr1b1_w<=addr1b1_w+1;
+            
+            if(~cnt[0]) cnt[0]<=1;
         end
         
-        buff1c[0]<=din1c;
+        // COMMUTATOR1 1-2
+        if(cnt[0]) cnt[0]<=cnt[0]+1;
+                
+        buff1c1[0]<=din1c[0];
         //HARDCODED
         for(j=1;j<8;j=j+1)begin
-            buff1c[j]<=buff1c[j-1];
+            buff1c1[j]<=buff1c1[j-1];
         end
+        if(cnt[0]>=14) addr1b1_r<=cnt[0]-13;
+        if(cnt[0]>=22) addr1a1_r<=cnt[0]-21;
     end
     
 endmodule
