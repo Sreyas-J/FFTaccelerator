@@ -13,101 +13,71 @@
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
       <ZoomEndTime time="530.001 ns"></ZoomEndTime>
-      <Cursor1Time time="235.100 ns"></Cursor1Time>
+      <Cursor1Time time="285.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="145"></NameColumnWidth>
-      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+      <NameColumnWidth column_width="155"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="22" />
+   <WVObjectSize size="11" />
    <wvobject type="logic" fp_name="/tb_FFT_staggered/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_FFT_staggered/dut/bf4real/val">
-      <obj_property name="ElementShortName">val</obj_property>
-      <obj_property name="ObjectShortName">val</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_FFT_staggered/dut/reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/doneInt">
-      <obj_property name="ElementShortName">doneInt[0:3]</obj_property>
-      <obj_property name="ObjectShortName">doneInt[0:3]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/a">
-      <obj_property name="ElementShortName">a[17:0]</obj_property>
-      <obj_property name="ObjectShortName">a[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/b">
-      <obj_property name="ElementShortName">b[17:0]</obj_property>
-      <obj_property name="ObjectShortName">b[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/c">
-      <obj_property name="ElementShortName">c[17:0]</obj_property>
-      <obj_property name="ObjectShortName">c[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/d">
-      <obj_property name="ElementShortName">d[17:0]</obj_property>
-      <obj_property name="ObjectShortName">d[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/A_r">
-      <obj_property name="ElementShortName">A_r[17:0]</obj_property>
-      <obj_property name="ObjectShortName">A_r[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/B_r">
-      <obj_property name="ElementShortName">B_r[17:0]</obj_property>
-      <obj_property name="ObjectShortName">B_r[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/B_i">
-      <obj_property name="ElementShortName">B_i[17:0]</obj_property>
-      <obj_property name="ObjectShortName">B_i[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/C_r">
-      <obj_property name="ElementShortName">C_r[17:0]</obj_property>
-      <obj_property name="ObjectShortName">C_r[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/C_i">
-      <obj_property name="ElementShortName">C_i[17:0]</obj_property>
-      <obj_property name="ObjectShortName">C_i[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/D_r">
-      <obj_property name="ElementShortName">D_r[17:0]</obj_property>
-      <obj_property name="ObjectShortName">D_r[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/bf4real/D_i">
-      <obj_property name="ElementShortName">D_i[17:0]</obj_property>
-      <obj_property name="ObjectShortName">D_i[17:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1a">
-      <obj_property name="ElementShortName">din1a[0:1][35:0]</obj_property>
-      <obj_property name="ObjectShortName">din1a[0:1][35:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1b">
-      <obj_property name="ElementShortName">din1b[0:1][35:0]</obj_property>
-      <obj_property name="ObjectShortName">din1b[0:1][35:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1c">
-      <obj_property name="ElementShortName">din1c[0:1][35:0]</obj_property>
-      <obj_property name="ObjectShortName">din1c[0:1][35:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_FFT_staggered/dut/cnt">
       <obj_property name="ElementShortName">cnt[0:2][5:0]</obj_property>
       <obj_property name="ObjectShortName">cnt[0:2][5:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1a">
-      <obj_property name="ElementShortName">dout1a[0:1][35:0]</obj_property>
-      <obj_property name="ObjectShortName">dout1a[0:1][35:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/fsm">
+      <obj_property name="ElementShortName">fsm[0:2][1:0]</obj_property>
+      <obj_property name="ObjectShortName">fsm[0:2][1:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1b">
-      <obj_property name="ElementShortName">dout1b[0:1][35:0]</obj_property>
-      <obj_property name="ObjectShortName">dout1b[0:1][35:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff11w0/doutb">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">doutb[35:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[35:0]</obj_property>
+      <obj_property name="label">dout1w0[0][0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1c">
-      <obj_property name="ElementShortName">dout1c[35:0]</obj_property>
-      <obj_property name="ObjectShortName">dout1c[35:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff11w1/doutb">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">doutb[35:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[35:0]</obj_property>
+      <obj_property name="label">dout1w1[0][0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1w2[0][0]">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][35:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][35:0]</obj_property>
+      <obj_property name="label">dout1w2[0][0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1w3_0[0]">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][35:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][35:0]</obj_property>
+      <obj_property name="label">dout1w3[0][0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff12w0/dina">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">dina[35:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[35:0]</obj_property>
+      <obj_property name="label">din1w0[0][1]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff12w1/dina">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">dina[35:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[35:0]</obj_property>
+      <obj_property name="label">din1w1[0][1]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1w2_1[0]">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0][35:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][35:0]</obj_property>
+      <obj_property name="label">din1w2[0][1]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1w3_0[1]">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[1][35:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][35:0]</obj_property>
+      <obj_property name="label">din1w3[0][1]</obj_property>
    </wvobject>
 </wave_config>

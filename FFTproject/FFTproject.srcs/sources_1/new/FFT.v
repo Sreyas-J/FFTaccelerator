@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 
-
 module FFT #(
     parameter INT_WIDTH=1,
     parameter FRAC_WIDTH=17,
@@ -28,32 +27,37 @@ module FFT #(
     wire [TWIDDLE_WIDTH*6+1:0] wsDout [0:STAGES-2];
     
     wire we1 [STAGES-2:0],we2 [STAGES-2:0];
-    wire [TOTAL_WIDTH*2-1:0] din1a[0:1],din1b[0:1],din1c[0:1];
-    reg [TOTAL_WIDTH*2-1:0] buff1c1 [0:7];
-    wire [TOTAL_WIDTH*2-1:0] dout1a[0:1],dout1b[0:1],dout1c,dout1d;
+    
+    // =========================================================================
+    // CRITICAL FIX: Split 2D arrays into distinct 1D arrays to avoid XSim bug
+    // =========================================================================
+    reg [TOTAL_WIDTH*2-1:0] din1w0_0 [0:STAGES-2];
+    reg [TOTAL_WIDTH*2-1:0] din1w0_1 [0:STAGES-2];
+    
+    reg [TOTAL_WIDTH*2-1:0] din1w1_0 [0:STAGES-2];
+    reg [TOTAL_WIDTH*2-1:0] din1w1_1 [0:STAGES-2];
+    
+    reg [TOTAL_WIDTH*2-1:0] din1w2_0 [0:STAGES-2];
+    reg [TOTAL_WIDTH*2-1:0] din1w2_1 [0:STAGES-2];
+    
+    reg [TOTAL_WIDTH*2-1:0] dout1w3_0 [0:STAGES-2];
+    reg [TOTAL_WIDTH*2-1:0] dout1w3_1 [0:STAGES-2];
+    
+    reg [TOTAL_WIDTH*2-1:0] buff1w2 [0:STAGES-2][0:1][0:7];
+    // =========================================================================
+
+    wire [TOTAL_WIDTH*2-1:0] dout1w0[0:STAGES-2][0:1],dout1w1[0:STAGES-2][0:1],dout1w2[0:STAGES-2][0:1];
     
     //HARDCODED
-    reg [4:0] ws1Addra,addr1a1_w,addr1a1_r,addr1a2_w,addr1a2_r;
-    reg [3:0] addr1b1_w,addr1b1_r,addr1b2_w,addr1b2_r;
+    reg [4:0] ws1Addra,addr1w0_w[0:1],addr1w0_r[0:1];
+    reg [3:0] addr1w1_w[0:1],addr1w1_r[0:1];
     reg [2:0] ws2Addra;
     reg ws3Addra;
     
     reg [5:0] cnt [0:STAGES-2];
-    
-    assign dout1c=buff1c1[7];
-    
-    assign A_i[0] = 'd0;
-    
-    assign din1a[0]={A_i[0],A_r[0]};
-    assign din1b[0]={B_i[0],B_r[0]};
-    assign din1c[0]={C_i[0],C_r[0]};
-    assign dout1d={D_i[0],D_r[0]};
-    
-    //TEMP
-    assign done=doneInt[0];
+    wire [1:0] fsm [0:STAGES-2];
     
     // STAGE1 TWIDDLE FACTORS
-    
     Wstage1 ws1 (
       .clka(clk),    // input wire clka
       .ena(1'b1),      // input wire ena
@@ -64,45 +68,45 @@ module FFT #(
     );
     
     // COMMUTATOR1 1-2
-    BUFF1A buff1a1 (
-      .clka(clk),    // input wire clka
-      .wea(we1[0]),      // input wire [0 : 0] wea
-      .addra(addr1a1_w),  // input wire [4 : 0] addra
-      .dina(din1a[0]),    // input wire [35 : 0] dina
-      .clkb(clk),    // input wire clkb
-      .addrb(addr1a1_r),  // input wire [4 : 0] addrb
-      .doutb(dout1a[0])  // output wire [35 : 0] doutb
+    BUFF1A buff11w0 (
+      .clka(clk),    
+      .wea(we1[0]),      
+      .addra(addr1w0_w[0]),  
+      .dina(din1w0_0[0]),     // UPDATED VAR  
+      .clkb(clk),    
+      .addrb(addr1w0_r[0]),  
+      .doutb(dout1w0[0][0])  
     );
     
-    BUFF1B buff1b1 (
-      .clka(clk),    // input wire clka
-      .wea(we1[0]),      // input wire [0 : 0] wea
-      .addra(addr1b1_w),  // input wire [3 : 0] addra
-      .dina(din1b[0]),    // input wire [35 : 0] dina
-      .clkb(clk),    // input wire clkb
-      .addrb(addr1b1_r),  // input wire [3 : 0] addrb
-      .doutb(dout1b[0])  // output wire [35 : 0] doutb
+    BUFF1B buff11w1 (
+      .clka(clk),    
+      .wea(we1[0]),      
+      .addra(addr1w1_w[0]),  
+      .dina(din1w1_0[0]),     // UPDATED VAR    
+      .clkb(clk),    
+      .addrb(addr1w1_r[0]),  
+      .doutb(dout1w1[0][0])  
     );
     
     //COMMUTATOR2 1-2
-    BUFF1A buff1a2 (
-      .clka(clk),    // input wire clka
-      .wea(we2[0]),      // input wire [0 : 0] wea
-      .addra(addr1a2_w),  // input wire [4 : 0] addra
-      .dina(din1a[1]),    // input wire [35 : 0] dina
-      .clkb(clk),    // input wire clkb
-      .addrb(addr1a2_r),  // input wire [4 : 0] addrb
-      .doutb(dout1a[1])  // output wire [35 : 0] doutb
+    BUFF1A buff12w0 (
+      .clka(clk),    
+      .wea(we2[0]),      
+      .addra(addr1w0_w[1]),  
+      .dina(din1w0_1[0]),     // UPDATED VAR    
+      .clkb(clk),    
+      .addrb(addr1w0_r[1]),  
+      .doutb(dout1w1[0][1])  
     );
     
-    BUFF1B buff1b2 (
-      .clka(clk),    // input wire clka
-      .wea(we2[0]),      // input wire [0 : 0] wea
-      .addra(addr1b2_w),  // input wire [3 : 0] addra
-      .dina(din1b[1]),    // input wire [35 : 0] dina
-      .clkb(clk),    // input wire clkb
-      .addrb(addr1b2_r),  // input wire [3 : 0] addrb
-      .doutb(dout1b[1])  // output wire [35 : 0] doutb
+    BUFF1B buff12w1 (
+      .clka(clk),    
+      .wea(we2[0]),      
+      .addra(addr1w1_w[1]),  
+      .dina(din1w1_1[0]),     // UPDATED VAR    
+      .clkb(clk),    
+      .addrb(addr1w1_r[1]),  
+      .doutb(dout1w1[0][1])  
     );
     
     
@@ -123,6 +127,61 @@ module FFT #(
         .done(doneInt[0])
     );
     
+    assign dout1w2[0][0]=buff1w2[0][0][7];
+    
+    assign A_i[0] = 'd0;
+    
+    integer j;
+    always@(*)begin
+        // Map Stage 1 outputs to the strictly 1D variables
+        din1w0_0[0] = {D_i[0],D_r[0]};
+        din1w1_0[0] = {C_i[0],C_r[0]};
+        din1w2_0[0] = {B_i[0],B_r[0]};
+        dout1w3_0[0] = {A_i[0],A_r[0]};
+
+        for(j=0;j<STAGES-2;j=j+1)begin
+             // Default assignments to prevent inferred latches
+             din1w0_1[j] = 'd0;
+             din1w1_1[j] = 'd0;
+             din1w2_1[j] = 'd0;
+             dout1w3_1[j] = 'd0;
+                
+             case(fsm[j])
+                 // State 0
+                 2'd0: begin
+                     din1w0_1[j] = dout1w3_0[j];
+                     din1w1_1[j] = dout1w0[j][0];
+                     din1w2_1[j] = dout1w1[j][0];
+                     dout1w3_1[j] = dout1w2[j][0];
+                 end
+                 // State 1
+                 2'd1: begin
+                     din1w0_1[j] = dout1w2[j][0];
+                     din1w1_1[j] = dout1w3_0[j];
+                     din1w2_1[j] = dout1w0[j][0];
+                     dout1w3_1[j] = dout1w1[j][0];
+                 end
+                 // State 2
+                 2'd2: begin
+                     din1w0_1[j] = dout1w1[j][0];
+                     din1w1_1[j] = dout1w2[j][0];
+                     din1w2_1[j] = dout1w3_0[j];
+                     dout1w3_1[j] = dout1w0[j][0];
+                 end
+                 // State 3
+                 2'd3: begin
+                     din1w0_1[j] = dout1w0[j][0];
+                     din1w1_1[j] = dout1w1[j][0];
+                     din1w2_1[j] = dout1w2[j][0];
+                     dout1w3_1[j] = dout1w3_0[j];
+                 end
+             endcase
+        end
+    end
+        
+    //TEMP
+    assign done=doneInt[0];
+    
     genvar i;
     generate
         for(i=0;i<STAGES;i=i+1)begin
@@ -137,21 +196,25 @@ module FFT #(
             
         end
         
-        for(i=0;i<STAGES-1;i=i+1)begin
-            assign we1[i]=doneInt[i];        
+        for(i=0; i<STAGES-1; i=i+1) begin
+            assign we1[i] = doneInt[i];  
+            assign fsm[i] = cnt[i] / 8; 
         end
+        
     endgenerate
     
-    
-    integer j;
     always@(posedge clk)begin
         if(reset)begin
-//            valInt[0]<=1'b1;
             ws1Addra<=0;
             dReset<=1;
             
-            addr1a1_w<=0; addr1a1_r<=0; addr1b1_w<=0; addr1b1_r<=0;
-            addr1a2_w<=0; addr1a2_r<=0; addr1b2_w<=0; addr1b2_r<=0;
+            for(j=0;j<2;j=j+1)begin
+                addr1w0_w[j]<=0;
+                addr1w0_r[j]<=0;
+                
+                addr1w1_w[j]<=0;
+                addr1w1_r[j]<=0;
+            end
             
             for(j=0;j<STAGES-1;j=j+1)begin
                 cnt[j]<=0;
@@ -160,7 +223,7 @@ module FFT #(
         end
         
         if(dReset==1) valInt[0]<=1'b1;
-        if(dReset && dReset!=3) dReset<=dReset+1;             
+        if(dReset && dReset!=3) dReset<=dReset+1;              
         if(dReset) ws1Addra<=ws1Addra+1;
         
         // STAGE1
@@ -170,8 +233,8 @@ module FFT #(
         d_r[0]<=in3;
         
         if(doneInt[0])begin
-            addr1a1_w<=addr1a1_w+1;
-            addr1b1_w<=addr1b1_w+1;
+            addr1w0_w[0]<=addr1w0_w[0]+1;
+            addr1w1_w[0]<=addr1w1_w[0]+1;
             
             if(~cnt[0]) cnt[0]<=1;
         end
@@ -179,13 +242,15 @@ module FFT #(
         // COMMUTATOR1 1-2
         if(cnt[0]) cnt[0]<=cnt[0]+1;
                 
-        buff1c1[0]<=din1c[0];
+        buff1w2[0][0][0]<=din1w2_0[0];    // UPDATED VAR
+        buff1w2[0][1][0]<=din1w2_1[0];    // UPDATED VAR
         //HARDCODED
         for(j=1;j<8;j=j+1)begin
-            buff1c1[j]<=buff1c1[j-1];
+            buff1w2[0][0][j]<=buff1w2[0][0][j-1];
+            buff1w2[0][1][j]<=buff1w2[0][1][j-1];
         end
-        if(cnt[0]>=14) addr1b1_r<=cnt[0]-13;
-        if(cnt[0]>=22) addr1a1_r<=cnt[0]-21;
+        if(cnt[0]>=14) addr1w1_r[0]<=cnt[0]-13;
+        if(cnt[0]>=22) addr1w0_r[0]<=cnt[0]-21;
     end
     
 endmodule
