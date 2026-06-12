@@ -26,7 +26,7 @@ module FFT #(
     
     wire [TWIDDLE_WIDTH*6+1:0] wsDout [0:STAGES-2];
     
-    wire we1 [STAGES-2:0],we2 [STAGES-2:0];
+    wire we1 [0:STAGES-2],we2_0 [0:STAGES-2],we2_1[0:STAGES-2];
     
     // =========================================================================
     // CRITICAL FIX: Split 2D arrays into distinct 1D arrays to avoid XSim bug
@@ -49,8 +49,8 @@ module FFT #(
     wire [TOTAL_WIDTH*2-1:0] dout1w0[0:STAGES-2][0:1],dout1w1[0:STAGES-2][0:1],dout1w2[0:STAGES-2][0:1];
     
     //HARDCODED
-    reg [4:0] ws1Addra,addr1w0_w[0:1],addr1w0_r[0:1];
-    reg [3:0] addr1w1_w[0:1],addr1w1_r[0:1];
+    reg [4:0] ws1Addra,addr1w0_w[0:STAGES-2],addr2w0_w[0:STAGES-2],addr1w0_r[0:STAGES-2],addr2w0_r[0:STAGES-2];
+    reg [3:0] addr1w1_w[0:STAGES-2],addr2w1_w[0:STAGES-2],addr1w1_r[0:STAGES-2],addr2w1_r[0:STAGES-2];
     reg [2:0] ws2Addra;
     reg ws3Addra;
     
@@ -91,21 +91,21 @@ module FFT #(
     //COMMUTATOR2 1-2
     BUFF1A buff12w0 (
       .clka(clk),    
-      .wea(we2[0]),      
-      .addra(addr1w0_w[1]),  
+      .wea(we2_0[0]),      
+      .addra(addr2w0_w[0]),  
       .dina(din1w0_1[0]),     // UPDATED VAR    
       .clkb(clk),    
-      .addrb(addr1w0_r[1]),  
+      .addrb(addr2w0_r[0]),  
       .doutb(dout1w1[0][1])  
     );
     
     BUFF1B buff12w1 (
       .clka(clk),    
-      .wea(we2[0]),      
-      .addra(addr1w1_w[1]),  
+      .wea(we2_1[0]),      
+      .addra(addr2w1_w[0]),  
       .dina(din1w1_1[0]),     // UPDATED VAR    
       .clkb(clk),    
-      .addrb(addr1w1_r[1]),  
+      .addrb(addr2w1_r[0]),  
       .doutb(dout1w1[0][1])  
     );
     
@@ -199,6 +199,9 @@ module FFT #(
         for(i=0; i<STAGES-1; i=i+1) begin
             assign we1[i] = doneInt[i];  
             assign fsm[i] = cnt[i] / 8; 
+            
+            assign we2_0[i] = doneInt[i];
+            assign we2_1[i]=fsm[i]?1'b1:1'b0;
         end
         
     endgenerate
@@ -208,12 +211,16 @@ module FFT #(
             ws1Addra<=0;
             dReset<=1;
             
-            for(j=0;j<2;j=j+1)begin
+            for(j=0;j<STAGES-2;j=j+1)begin
                 addr1w0_w[j]<=0;
                 addr1w0_r[j]<=0;
-                
                 addr1w1_w[j]<=0;
                 addr1w1_r[j]<=0;
+                
+                addr2w0_w[j]<=0;
+                addr2w0_r[j]<=0;
+                addr2w1_w[j]<=0;
+                addr2w1_r[j]<=0;
             end
             
             for(j=0;j<STAGES-1;j=j+1)begin
@@ -237,6 +244,17 @@ module FFT #(
             addr1w1_w[0]<=addr1w1_w[0]+1;
             
             if(~cnt[0]) cnt[0]<=1;
+        end
+        
+        for(j=0;j<STAGES-1;j=j+1)begin
+            if(we2_0[j])begin
+                if(addr2w0_w[j]==23) addr2w0_w[j]<=0;
+                else addr2w0_w[j]<=addr2w0_w[j]+1;
+            end
+            if(we2_1[j])begin
+                if(addr2w1_w[j]==15) addr2w1_w[j]<=0;
+                else addr2w1_w[j]<=addr2w1_w[j]+1;
+            end
         end
         
         // COMMUTATOR1 1-2
