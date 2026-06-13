@@ -29,7 +29,7 @@ module FFT #(
     wire we1 [0:STAGES-2],we2_0 [0:STAGES-2],we2_1[0:STAGES-2];
     
     // =========================================================================
-    // CRITICAL FIX: Split 2D arrays into distinct 1D arrays to avoid XSim bug
+    // Split 2D arrays into distinct 1D arrays to avoid XSim bug
     // =========================================================================
     reg [TOTAL_WIDTH*2-1:0] din1w0_0 [0:STAGES-2];
     reg [TOTAL_WIDTH*2-1:0] din1w0_1 [0:STAGES-2];
@@ -96,7 +96,7 @@ module FFT #(
       .dina(din1w0_1[0]),     // UPDATED VAR    
       .clkb(clk),    
       .addrb(addr2w0_r[0]),  
-      .doutb(dout1w1[0][1])  
+      .doutb(dout1w0[0][1])  // CRITICAL FIX: Was incorrectly dout1w1
     );
     
     BUFF1B buff12w1 (
@@ -128,10 +128,16 @@ module FFT #(
     );
     
     assign dout1w2[0][0]=buff1w2[0][0][7];
+    assign dout1w2[0][1]=buff1w2[0][1][7];
     
     assign A_i[0] = 'd0;
     
-    integer j;
+    // =========================================================================
+    // CRITICAL FIX: Separate loop integers to prevent race conditions
+    // =========================================================================
+    integer j_comb;
+    integer j_seq;
+
     always@(*)begin
         // Map Stage 1 outputs to the strictly 1D variables
         din1w0_0[0] = {D_i[0],D_r[0]};
@@ -139,41 +145,42 @@ module FFT #(
         din1w2_0[0] = {B_i[0],B_r[0]};
         dout1w3_0[0] = {A_i[0],A_r[0]};
 
-        for(j=0;j<STAGES-2;j=j+1)begin
+        // Use j_comb for the combinatorial block
+        for(j_comb=0; j_comb<STAGES-2; j_comb=j_comb+1)begin
              // Default assignments to prevent inferred latches
-             din1w0_1[j] = 'd0;
-             din1w1_1[j] = 'd0;
-             din1w2_1[j] = 'd0;
-             dout1w3_1[j] = 'd0;
+             din1w0_1[j_comb] = 'd0;
+             din1w1_1[j_comb] = 'd0;
+             din1w2_1[j_comb] = 'd0;
+             dout1w3_1[j_comb] = 'd0;
                 
-             case(fsm[j])
+             case(fsm[j_comb])
                  // State 0
                  2'd0: begin
-                     din1w0_1[j] = dout1w3_0[j];
-                     din1w1_1[j] = dout1w0[j][0];
-                     din1w2_1[j] = dout1w1[j][0];
-                     dout1w3_1[j] = dout1w2[j][0];
+                     din1w0_1[j_comb] = dout1w3_0[j_comb];
+                     din1w1_1[j_comb] = dout1w0[j_comb][0];
+                     din1w2_1[j_comb] = dout1w1[j_comb][0];
+                     dout1w3_1[j_comb] = dout1w2[j_comb][0];
                  end
                  // State 1
                  2'd1: begin
-                     din1w0_1[j] = dout1w2[j][0];
-                     din1w1_1[j] = dout1w3_0[j];
-                     din1w2_1[j] = dout1w0[j][0];
-                     dout1w3_1[j] = dout1w1[j][0];
+                     din1w0_1[j_comb] = dout1w2[j_comb][0];
+                     din1w1_1[j_comb] = dout1w3_0[j_comb];
+                     din1w2_1[j_comb] = dout1w0[j_comb][0];
+                     dout1w3_1[j_comb] = dout1w1[j_comb][0];
                  end
                  // State 2
                  2'd2: begin
-                     din1w0_1[j] = dout1w1[j][0];
-                     din1w1_1[j] = dout1w2[j][0];
-                     din1w2_1[j] = dout1w3_0[j];
-                     dout1w3_1[j] = dout1w0[j][0];
+                     din1w0_1[j_comb] = dout1w1[j_comb][0];
+                     din1w1_1[j_comb] = dout1w2[j_comb][0];
+                     din1w2_1[j_comb] = dout1w3_0[j_comb];
+                     dout1w3_1[j_comb] = dout1w0[j_comb][0];
                  end
                  // State 3
                  2'd3: begin
-                     din1w0_1[j] = dout1w0[j][0];
-                     din1w1_1[j] = dout1w1[j][0];
-                     din1w2_1[j] = dout1w2[j][0];
-                     dout1w3_1[j] = dout1w3_0[j];
+                     din1w0_1[j_comb] = dout1w0[j_comb][0];
+                     din1w1_1[j_comb] = dout1w1[j_comb][0];
+                     din1w2_1[j_comb] = dout1w2[j_comb][0];
+                     dout1w3_1[j_comb] = dout1w3_0[j_comb];
                  end
              endcase
         end
@@ -201,7 +208,7 @@ module FFT #(
             assign fsm[i] = cnt[i] / 8; 
             
             assign we2_0[i] = doneInt[i];
-            assign we2_1[i]=fsm[i]?1'b1:1'b0;
+            assign we2_1[i]= (cnt[i]>7) ? 1'b1:1'b0;
         end
         
     endgenerate
@@ -211,64 +218,85 @@ module FFT #(
             ws1Addra<=0;
             dReset<=1;
             
-            for(j=0;j<STAGES-2;j=j+1)begin
-                addr1w0_w[j]<=0;
-                addr1w0_r[j]<=0;
-                addr1w1_w[j]<=0;
-                addr1w1_r[j]<=0;
+            // Use j_seq for the sequential block
+            for(j_seq=0; j_seq<STAGES-2; j_seq=j_seq+1)begin
+                addr1w0_w[j_seq]<=0;
+                addr1w0_r[j_seq]<=0;
+                addr1w1_w[j_seq]<=0;
+                addr1w1_r[j_seq]<=0;
                 
-                addr2w0_w[j]<=0;
-                addr2w0_r[j]<=0;
-                addr2w1_w[j]<=0;
-                addr2w1_r[j]<=0;
+                addr2w0_w[j_seq]<=0;
+                addr2w0_r[j_seq]<=0;
+                addr2w1_w[j_seq]<=0;
+                addr2w1_r[j_seq]<=0;
             end
             
-            for(j=0;j<STAGES-1;j=j+1)begin
-                cnt[j]<=0;
+            for(j_seq=0; j_seq<STAGES-1; j_seq=j_seq+1)begin
+                cnt[j_seq]<=0;
             end
             
-        end
-        
-        if(dReset==1) valInt[0]<=1'b1;
-        if(dReset && dReset!=3) dReset<=dReset+1;              
-        if(dReset) ws1Addra<=ws1Addra+1;
-        
-        // STAGE1
-        a_r[0]<=in0;
-        b_r[0]<=in1;
-        c_r[0]<=in2;
-        d_r[0]<=in3;
-        
-        if(doneInt[0])begin
-            addr1w0_w[0]<=addr1w0_w[0]+1;
-            addr1w1_w[0]<=addr1w1_w[0]+1;
+        end else begin // CRITICAL FIX: Use else block to prevent synchronous logic running during reset
             
-            if(~cnt[0]) cnt[0]<=1;
-        end
-        
-        for(j=0;j<STAGES-1;j=j+1)begin
-            if(we2_0[j])begin
-                if(addr2w0_w[j]==23) addr2w0_w[j]<=0;
-                else addr2w0_w[j]<=addr2w0_w[j]+1;
-            end
-            if(we2_1[j])begin
-                if(addr2w1_w[j]==15) addr2w1_w[j]<=0;
-                else addr2w1_w[j]<=addr2w1_w[j]+1;
-            end
-        end
-        
-        // COMMUTATOR1 1-2
-        if(cnt[0]) cnt[0]<=cnt[0]+1;
+            if(dReset==1) valInt[0]<=1'b1;
+            if(dReset && dReset!=3) dReset<=dReset+1;              
+            if(dReset) ws1Addra<=ws1Addra+1;
+            
+            // STAGE1
+            a_r[0]<=in0;
+            b_r[0]<=in1;
+            c_r[0]<=in2;
+            d_r[0]<=in3;
+            
+            if(doneInt[0])begin
+                if(addr1w0_w[0]==23) addr1w0_w[0]<=0;
+                else addr1w0_w[0]<=addr1w0_w[0]+1;
                 
-        buff1w2[0][0][0]<=din1w2_0[0];    // UPDATED VAR
-        buff1w2[0][1][0]<=din1w2_1[0];    // UPDATED VAR
-        //HARDCODED
-        for(j=1;j<8;j=j+1)begin
-            buff1w2[0][0][j]<=buff1w2[0][0][j-1];
-            buff1w2[0][1][j]<=buff1w2[0][1][j-1];
+                if(addr1w1_w[0]==15) addr1w1_w[0]<=0;
+                else addr1w1_w[0]<=addr1w1_w[0]+1;
+                
+                if(!cnt[0]) cnt[0]<=1; // Safer logic check
+            end
+            
+            for(j_seq=0; j_seq<STAGES-1; j_seq=j_seq+1)begin
+                if(we2_0[j_seq])begin
+                    if(addr2w0_w[j_seq]==23) addr2w0_w[j_seq]<=0;
+                    else addr2w0_w[j_seq]<=addr2w0_w[j_seq]+1;
+                end
+                if(we2_1[j_seq])begin
+                    if(addr2w1_w[j_seq]==15) addr2w1_w[j_seq]<=0;
+                    else addr2w1_w[j_seq]<=addr2w1_w[j_seq]+1;
+                end
+            end
+            
+            // COMMUTATOR1 1-2
+            if(cnt[0]) cnt[0]<=cnt[0]+1;
+                    
+            buff1w2[0][0][0]<=din1w2_0[0];    
+            buff1w2[0][1][0]<=din1w2_1[0];    
+            
+            // HARDCODED
+            for(j_seq=1; j_seq<8; j_seq=j_seq+1)begin
+                buff1w2[0][0][j_seq]<=buff1w2[0][0][j_seq-1];
+                buff1w2[0][1][j_seq]<=buff1w2[0][1][j_seq-1];
+            end
+            
+            if(cnt[0]>=14)begin
+                addr1w1_r[0]<=cnt[0]-13;
+            end
+            
+            if(cnt[0]>=45)begin
+                addr1w0_r[0]<=cnt[0]-45;
+                addr2w0_r[0]<=cnt[0]-45;
+                
+                addr2w1_r[0]<=cnt[0]-21;
+            end
+            else if(cnt[0]>=22)begin
+                addr1w0_r[0]<=cnt[0]-21;
+                addr2w1_r[0]<=cnt[0]-21;
+                
+                addr2w0_r[0]<=cnt[0]-21;
+            end
         end
-        if(cnt[0]>=14) addr1w1_r[0]<=cnt[0]-13;
-        if(cnt[0]>=22) addr1w0_r[0]<=cnt[0]-21;
     end
     
 endmodule

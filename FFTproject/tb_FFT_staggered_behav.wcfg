@@ -3,62 +3,58 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_FFT_staggered_behav.wdb" id="1">
+      <db_ref path="tb_FFT_Stage1_to_2_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_FFT_staggered" />
+            <top_module name="tb_FFT_Stage1_to_2" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="530.001 ns"></ZoomEndTime>
-      <Cursor1Time time="285.000 ns"></Cursor1Time>
+      <ZoomStartTime time="323.937 ns"></ZoomStartTime>
+      <ZoomEndTime time="450.320 ns"></ZoomEndTime>
+      <Cursor1Time time="345.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="155"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="153"></NameColumnWidth>
+      <ValueColumnWidth column_width="60"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
-   <wvobject type="logic" fp_name="/tb_FFT_staggered/clk">
+   <wvobject type="logic" fp_name="/tb_FFT_Stage1_to_2/dut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff12w0/dina">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">dina[35:0]</obj_property>
-      <obj_property name="ObjectShortName">dina[35:0]</obj_property>
-      <obj_property name="label">din1w0[0][1]</obj_property>
+   <wvobject type="array" fp_name="/tb_FFT_Stage1_to_2/dut/cnt">
+      <obj_property name="ElementShortName">cnt[5:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff12w1/dina">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">dina[35:0]</obj_property>
-      <obj_property name="ObjectShortName">dina[35:0]</obj_property>
-      <obj_property name="label">din1w1[0][1]</obj_property>
+   <wvobject type="logic" fp_name="/tb_FFT_Stage1_to_2/dut/done">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/din1w2_1[0]">
+   <wvobject type="array" fp_name="/tb_FFT_Stage1_to_2/dut/buff12w0/doutb">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[0][35:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][35:0]</obj_property>
-      <obj_property name="label">din1w2[0][1]</obj_property>
+      <obj_property name="ElementShortName">doutb[35:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[35:0]</obj_property>
+      <obj_property name="label">doutw0[1]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/dout1w3_1[0]">
+   <wvobject type="array" fp_name="/tb_FFT_Stage1_to_2/dut/buff12w1/doutb">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[0][35:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][35:0]</obj_property>
-      <obj_property name="label">din1w3[0][1]</obj_property>
+      <obj_property name="ElementShortName">doutb[35:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[35:0]</obj_property>
+      <obj_property name="label">doutw1[1]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff12w0/inst/\native_mem_module.blk_mem_gen_v8_4_6_inst /memory">
+   <wvobject type="array" fp_name="/tb_FFT_Stage1_to_2/dut/dout_w2_post">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">memory[0:23][35:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[0:23][35:0]</obj_property>
-      <obj_property name="label">buff12w0[0:23]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="ElementShortName">dout_w2_post[35:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_w2_post[35:0]</obj_property>
+      <obj_property name="label">doutw2[1]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_FFT_staggered/dut/buff12w1/inst/\native_mem_module.blk_mem_gen_v8_4_6_inst /memory">
+   <wvobject type="array" fp_name="/tb_FFT_Stage1_to_2/dut/dout_w3_post">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">memory[0:15][35:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[0:15][35:0]</obj_property>
-      <obj_property name="label">buff12w1[0:15]</obj_property>
+      <obj_property name="ElementShortName">dout_w3_post[35:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_w3_post[35:0]</obj_property>
+      <obj_property name="label">doutw3[1]</obj_property>
    </wvobject>
 </wave_config>

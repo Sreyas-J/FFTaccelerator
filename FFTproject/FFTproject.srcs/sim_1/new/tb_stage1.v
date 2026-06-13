@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_FFT_staggered;
+module tb_FFT_Stage1_to_2;
 
     // Parameters matching your DUT
     parameter INT_WIDTH = 1;
@@ -13,12 +13,12 @@ module tb_FFT_staggered;
     reg signed [TOTAL_WIDTH-1:0] in0, in1, in2, in3;
     
     // DUT Outputs
-    wire signed [TOTAL_WIDTH-1:0] out0_r, out1_r, out2_r, out3_r;
-    wire signed [TOTAL_WIDTH-1:0] out0_i, out1_i, out2_i, out3_i;
+    wire signed [TOTAL_WIDTH-1:0] out0, out1, out2, out3;
+    // wire signed [TOTAL_WIDTH-1:0] out0_i, out1_i, out2_i, out3_i;
     wire done;
 
-    // Instantiate the Top-Level FFT Module
-    FFT #(
+    // Instantiate the Simplified Stage 1-2 Module
+    FFT_Stage1_to_2 #(
         .INT_WIDTH(INT_WIDTH),
         .FRAC_WIDTH(FRAC_WIDTH),
         .M(7) // 128-point configuration
@@ -26,8 +26,8 @@ module tb_FFT_staggered;
         .clk(clk),
         .reset(reset),
         .in0(in0), .in1(in1), .in2(in2), .in3(in3),
-        .out0_r(out0_r), .out1_r(out1_r), .out2_r(out2_r), .out3_r(out3_r),
-        .out0_i(out0_i), .out1_i(out1_i), .out2_i(out2_i), .out3_i(out3_i),
+        .out0(out0), .out1(out1), .out2(out2), .out3(out3),
+        // .out0_i(out0_i), .out1_i(out1_i), .out2_i(out2_i), .out3_i(out3_i),
         .done(done)
     );
 
@@ -48,6 +48,7 @@ module tb_FFT_staggered;
     integer i;
     initial begin
         // 1. Load the generated Hex file into TB memory
+        // Update this path if necessary to match your local directory
         $readmemh("/home/dell/Desktop/projects/20cred/FFTaccelerator/PySim/input_signal.mem", signal_mem);
         
         // 2. Initialize inputs and apply reset
@@ -98,10 +99,10 @@ module tb_FFT_staggered;
 //    always @(posedge clk) begin
 //        if (done) begin
 //            $display("Time=%0t | Output Data:", $time);
-//            $display("  Out0 = %8.4f + j%8.4f", $itor(out0_r)/131072.0, $itor(out0_i)/131072.0);
-//            $display("  Out1 = %8.4f + j%8.4f", $itor(out1_r)/131072.0, $itor(out1_i)/131072.0);
-//            $display("  Out2 = %8.4f + j%8.4f", $itor(out2_r)/131072.0, $itor(out2_i)/131072.0);
-//            $display("  Out3 = %8.4f + j%8.4f", $itor(out3_r)/131072.0, $itor(out3_i)/131072.0);
+//            $display("  Out0 = %8.4f + j%8.4f", $itor(out0)/131072.0, $itor(out0_i)/131072.0);
+//            $display("  Out1 = %8.4f + j%8.4f", $itor(out1)/131072.0, $itor(out1_i)/131072.0);
+//            $display("  Out2 = %8.4f + j%8.4f", $itor(out2)/131072.0, $itor(out2_i)/131072.0);
+//            $display("  Out3 = %8.4f + j%8.4f", $itor(out3)/131072.0, $itor(out3_i)/131072.0);
 //            $display("---------------------------------------------------");
 //        end
 //    end
